@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Headroom</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><svg class="mark" viewBox="0 0 96 96" role="img" aria-label="Headroom logo" xmlns="http://www.w3.org/2000/svg"><rect class="mk-tile" width="96" height="96" rx="22"/><rect class="mk-tick" x="9" y="26" width="8" height="44" rx="3.5"/><rect class="mk-tick" x="23" y="26" width="8" height="44" rx="3.5"/><rect class="mk-tick" x="37" y="26" width="8" height="44" rx="3.5"/><rect class="mk-tick" x="51" y="26" width="8" height="44" rx="3.5"/><rect class="mk-dim" x="65" y="26" width="8" height="44" rx="3.5"/><rect class="mk-dim" x="79" y="26" width="8" height="44" rx="3.5"/></svg><div><h1>Headroom</h1><p class="sub">Make room for what matters.</p></div></div>
+    <select id="cur" aria-label="Currency"></select>
+  </div>
+
+  <div id="v-plan">
+  <div class="nav"><button class="ghost" id="prev" aria-label="Previous month">‹</button><strong id="mlabel"></strong><button class="ghost" id="next" aria-label="Next month">›</button></div>
+  <details class="quiet" id="pbox"><summary>Payday and dates</summary>
+    <div class="pset">
+      <label class="sub">Payday, day of the month<input id="payday" type="number" min="1" max="28" aria-label="Payday, day of the month"></label>
+      <label class="sub">This budget month starts<input id="p-start" type="date"></label>
+      <label class="sub">and ends<input id="p-end" type="date"></label>
+    </div>
+    <div class="btnrow"><button type="button" id="p-save">Save dates</button><button type="button" id="p-reset" class="ghost">Reset to payday</button></div>
+    <div class="sub" id="p-msg"></div>
+  </details>
+
+  <div class="grid">
+    <div class="card"><div class="label">Budget for this month</div><input id="budget" type="number" min="0" step="any" placeholder="0" aria-label="Budget for this month" style="font-size:1.15rem;font-weight:700;padding:6px 8px;margin-top:4px"></div>
+    <div class="card"><div class="label">Money out</div><div class="big" id="spent">0</div></div>
+    <div class="card"><div class="label">Left to spend</div><div class="big" id="left">0</div></div>
+  </div>
+  <div class="bar" id="bar"><div></div></div>
+  <div class="sub" id="barText"></div>
+
+  <h2>Add an expense</h2>
+  <div class="tabs" id="kind" hidden><button type="button" id="k-out" class="on">Money out</button><button type="button" id="k-in">Money in</button></div>
+  <form class="add" id="form">
+    <input id="desc" placeholder="What was it?" required maxlength="60" aria-label="Description">
+    <input id="amt" type="number" min="0" step="any" placeholder="Amount" required aria-label="Amount">
+    <select id="cat" aria-label="Category"></select>
+    <input id="date" type="date" required aria-label="Date">
+    <button type="submit">Add</button>
+  </form>
+  <details class="card" id="catbox" style="margin-top:10px"><summary>Add or remove categories</summary>
+    <div id="catlist" class="chips"></div>
+    <div class="addcat"><input id="newcat" maxlength="20" placeholder="New category name" aria-label="New category name"><input id="newcol" type="color" value="#7a6ff0" aria-label="Category colour"><button id="addcat" type="button">Add</button></div>
+    <div class="sub" id="catmsg" style="margin:8px 0 0"></div>
+  </details>
+
+  <h2>Bills checklist</h2>
+  <div class="card">
+    <div class="sub" id="billsum"></div>
+    <div id="bills"></div>
+    <details><summary>Add a monthly bill</summary>
+      <div class="addbill"><input id="bname" maxlength="40" placeholder="Bill name (e.g. Rent)" aria-label="Bill name"><input id="bamt" type="number" min="0" step="any" placeholder="Amount" aria-label="Bill amount"><div class="dm"><select id="bday" aria-label="Due day"></select><select id="bmon" aria-label="Due month" disabled></select></div><input id="bnote" maxlength="60" placeholder="Note (optional)" aria-label="Note" style="grid-column:span 2"><label class="rep"><input type="checkbox" id="brep" checked> Repeats every month</label><button id="badd" type="button">Add</button></div>
+      <div class="sub" id="bmsg" style="margin-top:8px"></div>
+    </details>
+  </div>
+
+  <h2>Where it goes</h2>
+  <div class="card"><div class="catwrap"><div class="donut" id="donut"><div class="hole" id="hole"></div></div><div class="cats" id="cats"></div></div></div>
+
+  <h2>Expenses</h2>
+  <div class="card" id="list"></div>
+
+  <p style="margin-top:18px"><button class="ghost" id="reset" type="button">Clear all expenses</button></p>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
