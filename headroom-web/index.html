@@ -34,6 +34,9 @@
   <div class="bar" id="bar"><div></div></div>
   <div class="sub" id="barText"></div>
 
+  <div class="cols">
+  <div class="col">
+  <section class="sec" id="sec-add">
   <h2>Add an expense</h2>
   <div class="tabs" id="kind" hidden><button type="button" id="k-out" class="on">Money out</button><button type="button" id="k-in">Money in</button></div>
   <form class="add" id="form">
@@ -49,6 +52,16 @@
     <div class="sub" id="catmsg" style="margin:8px 0 0"></div>
   </details>
 
+  </section>
+  <section class="sec" id="sec-list">
+  <h2>Expenses</h2>
+  <div class="card" id="list"></div>
+
+  <p style="margin-top:18px"><button class="ghost" id="reset" type="button">Clear all expenses</button></p>
+  </section>
+  </div>
+  <div class="col">
+  <section class="sec" id="sec-bills">
   <h2>Bills checklist</h2>
   <div class="card">
     <div class="sub" id="billsum"></div>
@@ -59,13 +72,14 @@
     </details>
   </div>
 
+  </section>
+  <section class="sec" id="sec-chart">
   <h2>Where it goes</h2>
   <div class="card"><div class="catwrap"><div class="donut" id="donut"><div class="hole" id="hole"></div></div><div class="cats" id="cats"></div></div></div>
 
-  <h2>Expenses</h2>
-  <div class="card" id="list"></div>
-
-  <p style="margin-top:18px"><button class="ghost" id="reset" type="button">Clear all expenses</button></p>
+  </section>
+  </div>
+  </div>
   </div>
 
 </div>

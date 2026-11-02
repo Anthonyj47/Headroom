@@ -126,6 +126,16 @@ input:hover:not(:focus),select:hover:not(:focus),textarea:hover:not(:focus){bord
 .pset{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px}
 .pset label{display:block}
 @media (max-width:640px){.pset{grid-template-columns:1fr}}
+.cols{display:flex;flex-direction:column}
+.col{display:contents}
+#sec-add{order:1}#sec-bills{order:2}#sec-chart{order:3}#sec-list{order:4}
+@media (min-width:1000px){
+.wrap{max-width:1180px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;align-items:start}
+.col{display:block}
+.col .add,.col .edit{grid-template-columns:1fr 1fr}
+.col .add input:first-child,.col .add button,.col .edit input:first-child{grid-column:1/-1}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}button:hover,.donut:hover,.dz-btn{transform:none!important}}
 @media (max-width:640px){
 .wrap{padding:20px 16px 48px}
